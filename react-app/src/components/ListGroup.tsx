@@ -1,16 +1,17 @@
 function ListGroup() {
   let items = ["Chennai", "Coimbatore", "Maduri", "Thirunelveli"];
   //   items = [];
-  const isEmptyCheck = () => {
-    return items.length === 0 ? <p>No Items found</p> : null;
-  };
   return (
     <>
       <h1>List</h1>
-      {isEmptyCheck()}
+      {items.length === 0 && <p>No Items found</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item} className="list-group-item">
+        {items.map((item, index) => (
+          <li
+            onClick={(event) => console.log(item + "-" + index)}
+            key={item}
+            className="list-group-item"
+          >
             {item}
           </li>
         ))}
